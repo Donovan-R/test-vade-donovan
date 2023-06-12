@@ -2,7 +2,11 @@
   <section class="cocktailSection">
     <h1>générateur de cocktails</h1>
     <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
-      <article class="cocktailCard" v-for="cocktail of cocktailsRandom">
+      <article
+        class="cocktailCard"
+        v-for="cocktail of cocktailsRandom"
+        :key="cocktail.idDrink"
+      >
         <div>
           <img
             class="cocktailImage"
@@ -62,12 +66,13 @@ export default {
       const randomNumber = Math.floor(
         Math.random() * this.cocktailsList.length
       );
-      const randomNumber2 = Math.floor(
-        Math.random() * this.cocktailsList.length
-      );
-      const randomNumber3 = Math.floor(
-        Math.random() * this.cocktailsList.length
-      );
+      const randomNumber2 = randomNumber + 1;
+      // Math.floor(Math.random() * this.cocktailsList.length) !== randomNumber;
+
+      const randomNumber3 = randomNumber + 2;
+      // Math.floor(
+      //   Math.random() * this.cocktailsList.length
+      // );
       this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber2]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber3]);
