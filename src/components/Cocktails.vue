@@ -1,11 +1,3 @@
-<!-- <script setup>
-import { ref } from 'vue';
-defineProps({
-  msg: String,
-});
-const count = ref(0);
-</script> -->
-
 <template>
   <section class="cocktailSection">
     <h1>générateur de cocktails</h1>
@@ -15,12 +7,15 @@ const count = ref(0);
           <img
             class="cocktailImage"
             v-bind:src="cocktail.strDrinkThumb"
-            alt="cocktail.strDrink"
+            v-bind:alt="cocktail.strDrink"
           />
         </div>
         <div>
           <h3 class="cocktailName">{{ cocktail.strDrink }}</h3>
           <p class="cocktailInstructions">{{ cocktail.strInstructions }}</p>
+          <button @click="showCocktailDetails(cocktail.idDrink)">
+            Prépare moi
+          </button>
         </div>
       </article>
     </div>
@@ -75,6 +70,13 @@ export default {
       this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber2]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber3]);
+    },
+    showCocktailDetails(cocktailId) {
+      console.log(
+        this.cocktailsList.filter(
+          (singleCocktail) => singleCocktail.idDrink === cocktailId
+        )
+      );
     },
   },
 };
