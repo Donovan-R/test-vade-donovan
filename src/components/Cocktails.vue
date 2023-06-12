@@ -9,32 +9,20 @@ const count = ref(0);
 <template>
   <section class="cocktailSection">
     <h1>générateur de cocktails</h1>
-
-    <!-- <div>
-      {{ cocktailsList.map((cocktail) =>
-      <article>
-        <h3>cocktail.strDrink</h3>
-        img cocktail.strDrinkThumb
-      </article>
-      ) }}
-    </div> -->
-
-    <div class="cocktailsDiv" v-if="cocktailsList && cocktailsList.length">
-      <article class="cocktailCard" v-for="cocktail of cocktailsList">
+    <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
+      <article class="cocktailCard" v-for="cocktail of cocktailsRandom">
         <div>
           <img
             class="cocktailImage"
             v-bind:src="cocktail.strDrinkThumb"
-            alt="{{cocktail.strDrink}}"
+            alt="cocktail.strDrink"
           />
         </div>
         <div>
           <h3 class="cocktailName">{{ cocktail.strDrink }}</h3>
-
           <p class="cocktailInstructions">{{ cocktail.strInstructions }}</p>
         </div>
       </article>
-      <!-- <span>{{ cocktail.strDrinkThumb }}</span> -->
     </div>
 
     <ul v-if="errors && errors.length">
@@ -52,6 +40,7 @@ export default {
   data() {
     return {
       cocktailsList: [],
+      cocktailsRandom: [],
       errors: [],
     };
   },
@@ -63,24 +52,29 @@ export default {
       .then((response) => {
         // JSON responses are automatically parsed.
         this.cocktailsList = response.data.drinks;
-        console.log(response.data.drinks[0]);
-
-        // console.log(
-        //   this.cocktailsList.slice(0, 3).map((cocktail) => cocktail.strDrink)
-        // );
-        console.log(testTab);
+        this.getRandom();
       })
       .catch((e) => {
         this.errors.push(e);
       });
   },
+
+  //* add getRandom method
   methods: {
-    choose() {
-      const threeRandomCocktails = Math.floor(
+    getRandom() {
+      const randomNumber = Math.floor(
         Math.random() * this.cocktailsList.length
       );
-      this.randomCocktails = this.cocktailsList[threeRandomCocktails];
-      console.log(this.randomCocktails);
+      const randomNumber2 = Math.floor(
+        Math.random() * this.cocktailsList.length
+      );
+
+      const randomNumber3 = Math.floor(
+        Math.random() * this.cocktailsList.length
+      );
+      this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
+      this.cocktailsRandom.push(this.cocktailsList[randomNumber2]);
+      this.cocktailsRandom.push(this.cocktailsList[randomNumber3]);
     },
   },
 };
