@@ -13,6 +13,8 @@
         <div>
           <h3 class="cocktailName">{{ cocktail.strDrink }}</h3>
           <p class="cocktailInstructions">{{ cocktail.strInstructions }}</p>
+        </div>
+        <div class="buttonDiv">
           <button @click="showCocktailDetails(cocktail.idDrink)">
             Prépare moi
           </button>
@@ -63,7 +65,6 @@ export default {
       const randomNumber2 = Math.floor(
         Math.random() * this.cocktailsList.length
       );
-
       const randomNumber3 = Math.floor(
         Math.random() * this.cocktailsList.length
       );
@@ -71,6 +72,7 @@ export default {
       this.cocktailsRandom.push(this.cocktailsList[randomNumber2]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber3]);
     },
+    //* show single cocktail infos
     showCocktailDetails(cocktailId) {
       console.log(
         this.cocktailsList.filter(

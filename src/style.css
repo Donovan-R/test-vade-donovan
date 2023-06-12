@@ -21,6 +21,8 @@ h1 {
 }
 
 button {
+  text-align: center;
+  width: 75%;
   border-radius: 8px;
   border: 2px solid black;
   padding: 0.6em 1.2em;
@@ -65,8 +67,8 @@ Cocktails Section
 }
 
 .cocktailCard {
-  /* display: grid; */
-  /* grid-template-rows: auto 1fr; */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   max-width: 20rem;
   background-color: antiquewhite;
   padding-bottom: 1rem;
