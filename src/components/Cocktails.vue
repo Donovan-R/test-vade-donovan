@@ -7,8 +7,9 @@ const count = ref(0);
 </script> -->
 
 <template>
-  <h1>générateur de cocktails</h1>
-  <div class="cocktailsDiv">
+  <section class="cocktailSection">
+    <h1>générateur de cocktails</h1>
+
     <!-- <div>
       {{ cocktailsList.map((cocktail) =>
       <article>
@@ -18,11 +19,20 @@ const count = ref(0);
       ) }}
     </div> -->
 
-    <div v-if="cocktailsList && cocktailsList.length">
-      <article v-for="cocktail of cocktailsList">
-        <h3>{{ cocktail.strDrink }}</h3>
-        <img v-bind:src="cocktail.strDrinkThumb" alt="" />
-        <p>{{ cocktail.strInstructions }}</p>
+    <div class="cocktailsDiv" v-if="cocktailsList && cocktailsList.length">
+      <article class="cocktailCard" v-for="cocktail of cocktailsList">
+        <div>
+          <img
+            class="cocktailImage"
+            v-bind:src="cocktail.strDrinkThumb"
+            alt="{{cocktail.strDrink}}"
+          />
+        </div>
+        <div>
+          <h3 class="cocktailName">{{ cocktail.strDrink }}</h3>
+
+          <p class="cocktailInstructions">{{ cocktail.strInstructions }}</p>
+        </div>
       </article>
       <!-- <span>{{ cocktail.strDrinkThumb }}</span> -->
     </div>
@@ -32,7 +42,7 @@ const count = ref(0);
         {{ error.message }}
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -54,10 +64,24 @@ export default {
         // JSON responses are automatically parsed.
         this.cocktailsList = response.data.drinks;
         console.log(response.data.drinks[0]);
+
+        // console.log(
+        //   this.cocktailsList.slice(0, 3).map((cocktail) => cocktail.strDrink)
+        // );
+        console.log(testTab);
       })
       .catch((e) => {
         this.errors.push(e);
       });
+  },
+  methods: {
+    choose() {
+      const threeRandomCocktails = Math.floor(
+        Math.random() * this.cocktailsList.length
+      );
+      this.randomCocktails = this.cocktailsList[threeRandomCocktails];
+      console.log(this.randomCocktails);
+    },
   },
 };
 </script>
