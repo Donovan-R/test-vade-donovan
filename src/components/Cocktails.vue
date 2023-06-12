@@ -21,7 +21,7 @@ const count = ref(0);
     <div v-if="cocktailsList && cocktailsList.length">
       <article v-for="cocktail of cocktailsList">
         <h3>{{ cocktail.strDrink }}</h3>
-        <!-- <img src="{{" cocktail.strDrinkThumb }} alt="" /> -->
+        <img v-bind:src="cocktail.strDrinkThumb" alt="" />
         <p>{{ cocktail.strInstructions }}</p>
       </article>
       <!-- <span>{{ cocktail.strDrinkThumb }}</span> -->
