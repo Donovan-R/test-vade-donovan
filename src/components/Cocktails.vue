@@ -23,7 +23,7 @@
             :to="{ name: 'cocktailDetails', params: { id: cocktail.idDrink } }"
           >
             <button @click="showCocktailDetails(cocktail.idDrink)">
-              Prépare moi
+              Shake me
             </button>
           </router-link>
         </div>

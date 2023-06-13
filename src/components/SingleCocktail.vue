@@ -1,6 +1,48 @@
+<script></script>
+
 <template>
   <section class="singleCocktailSection">
-    <h2>{{ cocktailInfos.name }}</h2>
+    <div class="singleCocktailImageContainer">
+      <h2 class="singleCocktailName">{{ cocktailInfos.name }}</h2>
+      <img
+        class="singleCocktailImage"
+        v-bind:src="cocktailInfos.image"
+        v-bind:alt="cocktailInfos.name"
+      />
+    </div>
+    <div class="singleCocktailInfosContainer">
+      <h4>{{ cocktailInfos.category }}</h4>
+      <div class="dosageDiv">
+        <ul
+          class="ingredientsList"
+          v-if="
+            cocktailInfos.ingredients && cocktailInfos.ingredients.length > 0
+          "
+        >
+          <li
+            v-for="ingredient of cocktailInfos.ingredients.filter(
+              (ingredient) => ingredient !== null
+            )"
+          >
+            {{ ingredient }}
+          </li>
+        </ul>
+        <ul
+          class="measuresList"
+          v-if="cocktailInfos.measures && cocktailInfos.measures.length > 0"
+        >
+          <li
+            v-for="measure of cocktailInfos.measures.filter(
+              (measure) => measure !== null
+            )"
+          >
+            {{ measure }}
+          </li>
+        </ul>
+      </div>
+      <p><v-icon name="fa-flag" /> {{ cocktailInfos.instructions }}</p>
+      <p>For a better experience, serve it in a {{ cocktailInfos.glass }}</p>
+    </div>
   </section>
 </template>
 
@@ -15,6 +57,10 @@ export default {
         name: '',
         instructions: '',
         image: '',
+        category: '',
+        glass: '',
+        ingredients: [],
+        measures: [],
       },
       errors: [],
     };
@@ -32,8 +78,33 @@ export default {
           name: response.data.drinks[0].strDrink,
           instructions: response.data.drinks[0].strInstructions,
           image: response.data.drinks[0].strDrinkThumb,
+          category: response.data.drinks[0].strCategory,
+          glass: response.data.drinks[0].strGlass,
+          ingredients: [
+            response.data.drinks[0].strIngredient1,
+            response.data.drinks[0].strIngredient2,
+            response.data.drinks[0].strIngredient3,
+            response.data.drinks[0].strIngredient4,
+            response.data.drinks[0].strIngredient5,
+            response.data.drinks[0].strIngredient6,
+            response.data.drinks[0].strIngredient7,
+            response.data.drinks[0].strIngredient8,
+            response.data.drinks[0].strIngredient9,
+            response.data.drinks[0].strIngredient10,
+          ],
+          measures: [
+            response.data.drinks[0].strMeasure1,
+            response.data.drinks[0].strMeasure2,
+            response.data.drinks[0].strMeasure3,
+            response.data.drinks[0].strMeasure4,
+            response.data.drinks[0].strMeasure5,
+            response.data.drinks[0].strMeasure6,
+            response.data.drinks[0].strMeasure7,
+            response.data.drinks[0].strMeasure8,
+            response.data.drinks[0].strMeasure9,
+            response.data.drinks[0].strMeasure10,
+          ],
         };
-        console.log(response.data.drinks[0]);
       })
       .catch((e) => {
         this.errors.push(e);
