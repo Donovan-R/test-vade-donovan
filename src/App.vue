@@ -1,7 +1,8 @@
 <script setup>
 import Cocktails from './components/Cocktails.vue';
+import SingleCocktail from './components/SingleCocktail.vue';
 </script>
 
 <template>
-  <Cocktails msg="cocktails random" />
+  <router-view />
 </template>

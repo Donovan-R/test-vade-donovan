@@ -19,9 +19,13 @@
           <p class="cocktailInstructions">{{ cocktail.strInstructions }}</p>
         </div>
         <div class="buttonDiv">
-          <button @click="showCocktailDetails(cocktail.idDrink)">
-            Prépare moi
-          </button>
+          <router-link
+            :to="{ name: 'cocktailDetails', params: { id: cocktail.idDrink } }"
+          >
+            <button @click="showCocktailDetails(cocktail.idDrink)">
+              Prépare moi
+            </button>
+          </router-link>
         </div>
       </article>
     </div>
@@ -66,16 +70,9 @@ export default {
       const randomNumber = Math.floor(
         Math.random() * this.cocktailsList.length
       );
-      const randomNumber2 = randomNumber + 1;
-      // Math.floor(Math.random() * this.cocktailsList.length) !== randomNumber;
-
-      const randomNumber3 = randomNumber + 2;
-      // Math.floor(
-      //   Math.random() * this.cocktailsList.length
-      // );
       this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
-      this.cocktailsRandom.push(this.cocktailsList[randomNumber2]);
-      this.cocktailsRandom.push(this.cocktailsList[randomNumber3]);
+      this.cocktailsRandom.push(this.cocktailsList[randomNumber + 1]);
+      this.cocktailsRandom.push(this.cocktailsList[randomNumber + 2]);
     },
     //* show single cocktail infos
     showCocktailDetails(cocktailId) {
