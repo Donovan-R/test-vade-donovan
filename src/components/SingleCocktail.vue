@@ -11,7 +11,7 @@
       />
     </div>
     <div class="singleCocktailInfosContainer">
-      <h4>{{ cocktailInfos.category }}</h4>
+      <!-- <h4>{{ cocktailInfos.category }}</h4> -->
       <div class="dosageDiv">
         <ul
           class="ingredientsList"
@@ -19,6 +19,7 @@
             cocktailInfos.ingredients && cocktailInfos.ingredients.length > 0
           "
         >
+          <li class="titleIngredient"><strong>Ingredients</strong></li>
           <li
             v-for="ingredient of cocktailInfos.ingredients.filter(
               (ingredient) => ingredient !== null
@@ -31,6 +32,7 @@
           class="measuresList"
           v-if="cocktailInfos.measures && cocktailInfos.measures.length > 0"
         >
+          <li class="titleMeasure"><strong>Measures</strong></li>
           <li
             v-for="measure of cocktailInfos.measures.filter(
               (measure) => measure !== null
@@ -40,7 +42,11 @@
           </li>
         </ul>
       </div>
-      <p><v-icon name="fa-flag" /> {{ cocktailInfos.instructions }}</p>
+      <h3>How shaking me ?</h3>
+      <p class="InstructionsText">
+        {{ cocktailInfos.instructions }}
+      </p>
+      <h3>Tip</h3>
       <p>For a better experience, serve it in a {{ cocktailInfos.glass }}</p>
     </div>
   </section>

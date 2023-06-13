@@ -117,13 +117,49 @@ Single cocktail
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: rgba(27, 241, 226, 0.57);
+  margin: 1rem;
 }
-.ingredientsList {
+.ingredientsList,
+.measuresList {
   list-style: none;
   padding: 0;
 }
 
-.measuresList {
-  list-style: none;
-  padding: 0;
+.titleMeasure,
+.titleIngredient {
+  text-transform: uppercase;
+  text-decoration: underline;
+  padding: 0.5rem;
+}
+
+.singleCocktailSection p {
+  margin: 0 2rem 1rem 2rem;
+  text-align: center;
+}
+
+.singleCocktailSection h3 {
+  margin: 0 2rem 0 2rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  border-top: solid 2px rgba(27, 241, 226, 0.57);
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 800px) {
+  .singleCocktailSection {
+    display: grid;
+    grid-template-columns: 0.75fr 1.25fr;
+  }
+
+  .singleCocktailName {
+    position: unset;
+    background-color: unset;
+    color: antiquewhite;
+  }
+
+  .singleCocktailImage {
+    max-height: 350px;
+    width: auto;
+    padding-left: 1rem;
+  }
 }
