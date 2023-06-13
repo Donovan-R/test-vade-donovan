@@ -11,7 +11,8 @@
       />
     </div>
     <div class="singleCocktailInfosContainer">
-      <!-- <h4>{{ cocktailInfos.category }}</h4> -->
+      <h3>Category</h3>
+      <p>{{ cocktailInfos.category }}</p>
       <div class="dosageDiv">
         <ul
           class="ingredientsList"

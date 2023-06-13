@@ -16,7 +16,7 @@
         </div>
         <div>
           <h3 class="cocktailName">{{ cocktail.strDrink }}</h3>
-          <p class="cocktailInstructions">{{ cocktail.strInstructions }}</p>
+          <p class="cocktailCategory">Category: {{ cocktail.strCategory }}</p>
         </div>
         <div class="buttonDiv">
           <router-link
