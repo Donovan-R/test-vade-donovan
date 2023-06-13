@@ -146,10 +146,12 @@ Single cocktail
   text-decoration: underline;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
   .singleCocktailSection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.75fr 1fr;
+    column-gap: 2rem;
+    /* width: 85%; */
   }
 
   .singleCocktailName {
@@ -157,8 +159,14 @@ Single cocktail
   }
 
   .singleCocktailImage {
-    max-height: 450px;
+    max-height: 350px;
     width: auto;
     padding-left: 1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .singleCocktailImage {
+    max-height: 450px;
   }
 }
