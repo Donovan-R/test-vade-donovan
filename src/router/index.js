@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Cocktails from '../components/Cocktails.vue';
 import SingleCocktail from '../components/SingleCocktail.vue';
+import ErrorPage from '../components/ErrorPage.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/:id',
       name: 'cocktailDetails',
       component: SingleCocktail,
+    },
+    {
+      path: '/*',
+      name: 'ErrorPage',
+      component: ErrorPage,
     },
   ],
 });

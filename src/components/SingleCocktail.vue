@@ -1,6 +1,5 @@
-<script></script>
-
 <template>
+  <router-link :to="{ name: 'home' }"><span>back</span></router-link>
   <section class="singleCocktailSection">
     <div class="singleCocktailImageContainer">
       <h2 class="singleCocktailName">{{ cocktailInfos.name }}</h2>
@@ -116,11 +115,6 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
-  },
-
-  //* add getRandom method
-  methods: {
-    //* show single cocktail infos
   },
 };
 </script>

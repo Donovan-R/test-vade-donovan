@@ -2,12 +2,21 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.87);
+  color: antiquewhite;
   background-color: #242424;
-  -webkit-text-size-adjust: 100%;
+  /* -webkit-text-size-adjust: 100%; */
 }
 
 /* global styles */
+
+#app {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-top: 2rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
 
 body {
   margin: 0;
@@ -16,8 +25,15 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  text-transform: capitalize;
+  font-size: 2em;
+  /* line-height: 1.1; */
+}
+
+@media screen and (min-width: 450px) {
+  h1 {
+    font-size: 3.2em;
+  }
 }
 
 button {
@@ -29,27 +45,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #76c3e4;
+  background-color: rgb(27, 241, 226);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.5s linear;
 }
 
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-#app {
-  margin: 0 auto;
-  max-width: 1280px;
-  padding-top: 2rem;
-  min-height: 100vh;
-  text-align: center;
-  display: grid;
-  place-items: center;
+  background-color: #242424;
+  border-color: rgb(27, 241, 226);
+  color: rgb(27, 241, 226);
 }
 
 /*
@@ -61,6 +65,7 @@ Cocktails Section
 .cocktailSection {
   display: grid;
   place-items: center;
+  /* height: fit-content; */
 }
 
 .cocktailsDiv {
@@ -110,8 +115,7 @@ Single cocktail
 .singleCocktailName {
   padding: 1rem;
   width: 100%;
-  color: antiquewhite;
-  background-color: rgba(27, 241, 226, 0.37);
+  background-color: rgba(27, 241, 226, 0.57);
 }
 
 .dosageDiv {
