@@ -1,6 +1,9 @@
 <template>
-  <router-link to="/"><span>back</span></router-link>
-  <section class="singleCocktailSection">
+  <router-link v-if="!loading" to="/"><span>back</span></router-link>
+  <section v-if="loading" class="loadingPage">
+    <h2>chargement en cours</h2>
+  </section>
+  <section v-if="!loading" class="singleCocktailSection">
     <div class="singleCocktailImageContainer">
       <h2 class="singleCocktailName">{{ cocktailInfos.name }}</h2>
       <img
@@ -112,6 +115,7 @@ export default {
             response.data.drinks[0].strMeasure10,
           ],
         };
+        this.loading = false;
       })
       .catch((e) => {
         this.errors.push(e);

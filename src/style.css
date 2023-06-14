@@ -9,15 +9,6 @@
 
 /* global styles */
 
-#app {
-  margin: 0 auto;
-  max-width: 1280px;
-  padding-top: 2rem;
-  text-align: center;
-  display: grid;
-  place-items: center;
-}
-
 body {
   margin: 0;
   min-width: 320px;
@@ -65,7 +56,7 @@ Cocktails Section
 .cocktailSection {
   display: grid;
   place-items: center;
-  /* height: fit-content; */
+  text-align: center;
 }
 
 .cocktailsDiv {
@@ -89,7 +80,7 @@ Cocktails Section
   height: 20rem;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 850px) {
   .cocktailsDiv {
     width: 80vw;
     margin: 0 auto;
@@ -107,6 +98,10 @@ Single cocktail
 
 =================
 */
+
+.singleCocktailSection {
+  text-align: center;
+}
 
 .singleCocktailImage {
   width: 80%;
@@ -153,8 +148,10 @@ Single cocktail
 @media screen and (min-width: 700px) {
   .singleCocktailSection {
     display: grid;
+    place-items: center;
     grid-template-columns: 0.75fr 1fr;
-    column-gap: 2rem;
+    column-gap: 1rem;
+    padding-right: 2rem;
     /* width: 85%; */
   }
 
@@ -173,4 +170,17 @@ Single cocktail
   .singleCocktailImage {
     max-height: 450px;
   }
+}
+
+/*
+=============
+Loading     |
+=============
+*/
+
+.loadingPage {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 50vh;
 }

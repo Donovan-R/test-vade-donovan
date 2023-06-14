@@ -1,5 +1,8 @@
 <template>
-  <section class="cocktailSection">
+  <section v-if="loading" class="loadingPage">
+    <h2>chargement en cours</h2>
+  </section>
+  <section v-if="!loading" class="cocktailSection">
     <h1>générateur de cocktails</h1>
     <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
       <article
@@ -44,6 +47,7 @@ export default {
     return {
       cocktailsList: [],
       cocktailsRandom: [],
+      loading: true,
       errors: [],
     };
   },
@@ -56,6 +60,7 @@ export default {
         // JSON responses are automatically parsed.
         this.cocktailsList = response.data.drinks;
         this.getRandom();
+        this.loading = false;
       })
       .catch((e) => {
         this.errors.push(e);
