@@ -1,6 +1,6 @@
 <template>
   <router-link v-if="!loading" to="/">
-    <span> back</span>
+    <button class="backButton">back</button>
     <!-- <fa class="faIcon" icon="coffee" />
     <font-awesome-icon :icon="['fas', 'arrow-left']" /> -->
   </router-link>

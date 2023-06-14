@@ -4,7 +4,10 @@
   </section>
   <section v-if="!loading && cocktailsRandom" class="cocktailSection">
     <h1>générateur de cocktails</h1>
-    <button v-on:click="refresh"></button>
+    <button class="reloadButton" v-on:click="reloadPage()">
+      I want others
+    </button>
+    {{ console.log(cocktailsRandom) }}
     <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
       <article
         class="cocktailCard"
@@ -41,13 +44,13 @@
 </template>
 
 <script>
-import { faLink } from '@fortawesome/free-solid-svg-icons';
+// import { fa } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
+import { Refresh } from '@iconsans/vue';
 
 export default {
   data() {
     return {
-      cocktailsList: [],
       cocktailsRandom: [],
       loading: true,
       errors: [],
@@ -60,8 +63,7 @@ export default {
       .get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=`)
       .then((response) => {
         // JSON responses are automatically parsed.
-        this.cocktailsList = response.data.drinks;
-        this.getRandom();
+        this.getRandom(response.data.drinks);
         this.loading = false;
       })
       .catch((e) => {
@@ -72,16 +74,16 @@ export default {
 
   //* add getRandom method
   methods: {
-    getRandom() {
+    getRandom(cocktailsList) {
       const randomNumber = Math.floor(
-        Math.random() * this.cocktailsList.length - 2
+        Math.random() * (cocktailsList.length - 2)
       );
-      this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
-      this.cocktailsRandom.push(this.cocktailsList[randomNumber + 1]);
-      this.cocktailsRandom.push(this.cocktailsList[randomNumber + 2]);
+      this.cocktailsRandom.push(cocktailsList[randomNumber]);
+      this.cocktailsRandom.push(cocktailsList[randomNumber + 1]);
+      this.cocktailsRandom.push(cocktailsList[randomNumber + 2]);
     },
-    refresh() {
-      this.$router.push('/');
+    reloadPage() {
+      window.location.reload();
     },
   },
 };

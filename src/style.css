@@ -61,17 +61,15 @@ Cocktails Section
 
 .cocktailsDiv {
   display: grid;
-  row-gap: 2rem;
-  column-gap: 2rem;
 }
 
 .cocktailCard {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  max-width: 20rem;
+  width: 100%;
   background-color: antiquewhite;
   padding-bottom: 1rem;
-  margin: 1rem;
+  margin: 2rem 0;
   color: #242424;
 }
 
@@ -80,15 +78,24 @@ Cocktails Section
   height: 20rem;
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 800px) {
   .cocktailsDiv {
     width: 80vw;
     margin: 0 auto;
     justify-content: center;
     row-gap: 0.5rem;
-    column-gap: 0.5rem;
-    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+    column-gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+@media screen and (min-width: 1100px) {
+  .cocktailsDiv {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.reloadButton {
+  width: fit-content;
 }
 
 /*
@@ -170,6 +177,14 @@ Single cocktail  |
   .singleCocktailImage {
     max-height: 450px;
   }
+}
+
+.backButton {
+  text-transform: capitalize;
+  width: fit-content;
+  position: absolute;
+  left: 2%;
+  top: 4%;
 }
 
 /*
