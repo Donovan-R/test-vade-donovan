@@ -1,5 +1,9 @@
 <template>
-  <router-link v-if="!loading" to="/"><span>back</span></router-link>
+  <router-link v-if="!loading" to="/">
+    <span> back</span>
+    <!-- <fa class="faIcon" icon="coffee" />
+    <font-awesome-icon :icon="['fas', 'arrow-left']" /> -->
+  </router-link>
   <section v-if="loading" class="loadingPage">
     <h2>chargement en cours</h2>
   </section>

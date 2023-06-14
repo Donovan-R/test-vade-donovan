@@ -94,7 +94,7 @@ Cocktails Section
 /*
 ==================
 
-Single cocktail
+Single cocktail  |
 
 =================
 */
@@ -183,4 +183,26 @@ Loading     |
   place-items: center;
   width: 100vw;
   height: 50vh;
+}
+
+/*
+==========
+Icons    |
+==========
+*/
+
+.faIcon {
+  width: 1rem;
+  height: 1rem;
+  color: antiquewhite;
+}
+
+/*
+=========
+Error
+========
+*/
+
+.errorPage {
+  text-align: center;
 }

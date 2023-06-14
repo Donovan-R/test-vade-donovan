@@ -4,6 +4,7 @@
   </section>
   <section v-if="!loading && cocktailsRandom" class="cocktailSection">
     <h1>générateur de cocktails</h1>
+    <button v-on:click="refresh"></button>
     <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
       <article
         class="cocktailCard"
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 export default {
@@ -64,6 +66,7 @@ export default {
       })
       .catch((e) => {
         this.errors.push(e);
+        // this.getRandom();
       });
   },
 
@@ -71,11 +74,14 @@ export default {
   methods: {
     getRandom() {
       const randomNumber = Math.floor(
-        Math.random() * this.cocktailsList.length
+        Math.random() * this.cocktailsList.length - 2
       );
       this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber + 1]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber + 2]);
+    },
+    refresh() {
+      this.$router.push('/');
     },
   },
 };
