@@ -17,11 +17,17 @@ const router = createRouter({
       component: SingleCocktail,
     },
     {
-      path: '/*',
-      name: 'ErrorPage',
+      path: '/:pathMatch(.*)',
+      name: 'not-found',
       component: ErrorPage,
     },
   ],
 });
+
+// good example:
+router.resolve({
+  name: 'not-found',
+  params: { pathMatch: 'not/found' },
+}).href;
 
 export default router;

@@ -22,9 +22,7 @@
           <router-link
             :to="{ name: 'cocktailDetails', params: { id: cocktail.idDrink } }"
           >
-            <button @click="showCocktailDetails(cocktail.idDrink)">
-              Shake me
-            </button>
+            <button>Shake me</button>
           </router-link>
         </div>
       </article>
@@ -73,14 +71,6 @@ export default {
       this.cocktailsRandom.push(this.cocktailsList[randomNumber]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber + 1]);
       this.cocktailsRandom.push(this.cocktailsList[randomNumber + 2]);
-    },
-    //* show single cocktail infos
-    showCocktailDetails(cocktailId) {
-      console.log(
-        this.cocktailsList.filter(
-          (singleCocktail) => singleCocktail.idDrink === cocktailId
-        )
-      );
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'home' }"><span>back</span></router-link>
+  <router-link to="/"><span>back</span></router-link>
   <section class="singleCocktailSection">
     <div class="singleCocktailImageContainer">
       <h2 class="singleCocktailName">{{ cocktailInfos.name }}</h2>
@@ -68,6 +68,7 @@ export default {
         ingredients: [],
         measures: [],
       },
+      loading: true,
       errors: [],
     };
   },
