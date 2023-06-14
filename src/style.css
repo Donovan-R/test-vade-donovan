@@ -152,7 +152,7 @@ Single cocktail
     grid-template-columns: 0.75fr 1fr;
     column-gap: 1rem;
     padding-right: 2rem;
-    /* width: 85%; */
+    height: 90vh;
   }
 
   .singleCocktailName {

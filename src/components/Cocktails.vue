@@ -2,7 +2,7 @@
   <section v-if="loading" class="loadingPage">
     <h2>chargement en cours</h2>
   </section>
-  <section v-if="!loading" class="cocktailSection">
+  <section v-if="!loading && cocktailsRandom" class="cocktailSection">
     <h1>générateur de cocktails</h1>
     <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
       <article
