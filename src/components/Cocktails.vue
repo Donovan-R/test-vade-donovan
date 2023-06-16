@@ -7,7 +7,6 @@
     <button class="reloadButton" v-on:click="reloadPage()">
       I want others
     </button>
-    {{ console.log(cocktailsRandom) }}
     <div class="cocktailsDiv" v-if="cocktailsRandom && cocktailsRandom.length">
       <article
         class="cocktailCard"
