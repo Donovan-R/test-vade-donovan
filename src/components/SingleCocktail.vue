@@ -2,10 +2,11 @@
   <router-link v-if="!loading" to="/">
     <button class="backButton">back</button>
     <!-- <fa class="faIcon" icon="coffee" />
+import LoadingPage from './LoadingPage.vue';
     <font-awesome-icon :icon="['fas', 'arrow-left']" /> -->
   </router-link>
   <section v-if="loading" class="loadingPage">
-    <h2>chargement en cours...</h2>
+    <LoadingPage />
   </section>
   <section v-if="!loading" class="singleCocktailSection">
     <div class="singleCocktailImageContainer">
@@ -61,6 +62,7 @@
 
 <script>
 import axios from 'axios';
+import LoadingPage from './LoadingPage.vue';
 
 export default {
   //   name: 'cocktailDetails',
@@ -79,7 +81,6 @@ export default {
       errors: [],
     };
   },
-
   // Pulls cocktails when the component is created.
   created() {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=`;
@@ -125,5 +126,6 @@ export default {
         this.errors.push(e);
       });
   },
+  components: { LoadingPage },
 };
 </script>

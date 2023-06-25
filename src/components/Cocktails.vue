@@ -1,7 +1,8 @@
 <template>
   <section v-if="loading" class="loadingPage">
-    <h2>chargement en cours...</h2>
+    <LoadingPage />
   </section>
+
   <section v-if="!loading && cocktailsRandom" class="cocktailSection">
     <h1>générateur de cocktails</h1>
     <button class="reloadButton" v-on:click="reloadPage()">
@@ -43,9 +44,8 @@
 </template>
 
 <script>
-// import { fa } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { Refresh } from '@iconsans/vue';
+import LoadingPage from './LoadingPage.vue';
 
 export default {
   data() {
@@ -55,7 +55,6 @@ export default {
       errors: [],
     };
   },
-
   // Pulls cocktails when the component is created.
   created() {
     axios
@@ -70,7 +69,6 @@ export default {
         // this.getRandom();
       });
   },
-
   //* add getRandom method
   methods: {
     getRandom(cocktailsList) {
@@ -85,5 +83,6 @@ export default {
       window.location.reload();
     },
   },
+  components: { LoadingPage },
 };
 </script>
