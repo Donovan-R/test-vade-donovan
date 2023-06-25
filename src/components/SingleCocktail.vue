@@ -5,7 +5,7 @@
     <font-awesome-icon :icon="['fas', 'arrow-left']" /> -->
   </router-link>
   <section v-if="loading" class="loadingPage">
-    <h2>chargement en cours</h2>
+    <h2>chargement en cours...</h2>
   </section>
   <section v-if="!loading" class="singleCocktailSection">
     <div class="singleCocktailImageContainer">
