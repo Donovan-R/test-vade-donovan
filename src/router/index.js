@@ -24,7 +24,6 @@ const router = createRouter({
   ],
 });
 
-// good example:
 router.resolve({
   name: 'not-found',
   params: { pathMatch: 'not/found' },
