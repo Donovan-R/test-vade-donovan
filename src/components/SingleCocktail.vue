@@ -8,7 +8,7 @@ import LoadingPage from './LoadingPage.vue';
   <section v-if="loading" class="loadingPage">
     <LoadingPage />
   </section>
-  <section v-if="!loading" class="singleCocktailSection">
+  <section v-else class="singleCocktailSection">
     <div class="singleCocktailImageContainer">
       <h2 class="singleCocktailName">{{ cocktailInfos.name }}</h2>
       <img
@@ -89,35 +89,41 @@ export default {
       .get(url + cocktailId)
       .then((response) => {
         // JSON responses are automatically parsed.
+        const cocktailDatas = response.data.drinks[0];
         this.cocktailInfos = {
-          name: response.data.drinks[0].strDrink,
-          instructions: response.data.drinks[0].strInstructions,
-          image: response.data.drinks[0].strDrinkThumb,
-          category: response.data.drinks[0].strCategory,
-          glass: response.data.drinks[0].strGlass,
+          name: cocktailDatas.strDrink,
+          instructions: cocktailDatas.strInstructions,
+          image: cocktailDatas.strDrinkThumb,
+          category: cocktailDatas.strCategory,
+          glass: cocktailDatas.strGlass,
           ingredients: [
-            response.data.drinks[0].strIngredient1,
-            response.data.drinks[0].strIngredient2,
-            response.data.drinks[0].strIngredient3,
-            response.data.drinks[0].strIngredient4,
-            response.data.drinks[0].strIngredient5,
-            response.data.drinks[0].strIngredient6,
-            response.data.drinks[0].strIngredient7,
-            response.data.drinks[0].strIngredient8,
-            response.data.drinks[0].strIngredient9,
-            response.data.drinks[0].strIngredient10,
+            cocktailDatas.strIngredient1,
+            cocktailDatas.strIngredient2,
+            cocktailDatas.strIngredient3,
+            cocktailDatas.strIngredient4,
+            cocktailDatas.strIngredient5,
+            cocktailDatas.strIngredient6,
+            cocktailDatas.strIngredient7,
+            cocktailDatas.strIngredient8,
+            cocktailDatas.strIngredient9,
+            cocktailDatas.strIngredient10,
+            cocktailDatas.strIngredient11,
+            cocktailDatas.strIngredient12,
+            cocktailDatas.strIngredient13,
+            cocktailDatas.strIngredient14,
+            cocktailDatas.strIngredient15,
           ],
           measures: [
-            response.data.drinks[0].strMeasure1,
-            response.data.drinks[0].strMeasure2,
-            response.data.drinks[0].strMeasure3,
-            response.data.drinks[0].strMeasure4,
-            response.data.drinks[0].strMeasure5,
-            response.data.drinks[0].strMeasure6,
-            response.data.drinks[0].strMeasure7,
-            response.data.drinks[0].strMeasure8,
-            response.data.drinks[0].strMeasure9,
-            response.data.drinks[0].strMeasure10,
+            cocktailDatas.strMeasure1,
+            cocktailDatas.strMeasure2,
+            cocktailDatas.strMeasure3,
+            cocktailDatas.strMeasure4,
+            cocktailDatas.strMeasure5,
+            cocktailDatas.strMeasure6,
+            cocktailDatas.strMeasure7,
+            cocktailDatas.strMeasure8,
+            cocktailDatas.strMeasure9,
+            cocktailDatas.strMeasure10,
           ],
         };
         this.loading = false;

@@ -35,7 +35,12 @@
       </article>
     </div>
 
-    <ul v-if="errors && errors.length">
+    <ul
+      v-if="
+        (errors && errors.length && !loading) ||
+        (errors && errors.length && loading)
+      "
+    >
       <li v-for="error of errors">
         {{ error.message }}
       </li>
@@ -72,6 +77,7 @@ export default {
   //* add getRandom method
   methods: {
     getRandom(cocktailsList) {
+      // this.cocktailsRandom = [];
       const randomNumber = Math.floor(
         Math.random() * (cocktailsList.length - 2)
       );
